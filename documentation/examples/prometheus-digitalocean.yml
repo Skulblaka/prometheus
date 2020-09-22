@@ -16,7 +16,7 @@ scrape_configs:
     relabel_configs:
       # Only scrape targets that have a tag 'monitoring'.
       - source_labels: [__meta_digitalocean_tags]
-        regex: '.*,monitoring,.*'
+        regex: '(?>^|,)(monitoring)(?>,|$)'
         action: keep
 
       # Use the public IPv6 address and port 9100 to scrape the target.
